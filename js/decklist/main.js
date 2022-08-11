@@ -732,10 +732,8 @@ function generateStandardDecklist(parsedInput) {
   dl.rect(135, 78, 441, 24);  // location + deck name
   dl.rect(355, 54, 221, 72);  // event + deck name + deck designer
   dl.rect(552, 30, 24, 24);   // first letter
-  dl.rect(445, 30, 55, 24);   // table number
 
   dl.rect(27, 140, 24, 628);  // last name + first name + dci
-  dl.rect(27, 140, 24, 270);  // dci
   dl.rect(27, 140, 24, 449);  // first name + dci
 
   dl.rect(250, 748, 56, 22); // total number main deck
@@ -750,12 +748,6 @@ function generateStandardDecklist(parsedInput) {
   dl.rect(320, 722, 260, 12); // official use + main/sb
   dl.rect(320, 734, 260, 12); // dc round + dc round
   dl.rect(320, 746, 260, 12); // status + status
-
-  let y = 140;
-  while (y < 380) {
-    dl.rect(27, y, 24, 24);  // dci digits
-    y += 24;
-  }
 
   // Now let's create a bunch of lines for putting cards on
   y = 186;
@@ -787,12 +779,11 @@ function generateStandardDecklist(parsedInput) {
   // There are a ton of them, so this will be exciting
   dl.setFontSize(15);
   dl.setFontStyle('bold');
-  dl.setFont('times'); // it's no Helvetica, that's for sure
+  dl.setFont('helvetica'); // it's no Helvetica, that's for sure
   dl.text('DECK REGISTRATION SHEET', 135, 45);
 
   dl.setFontSize(7);
   dl.setFontStyle('normal');
-  dl.text('Table', 421, 40);
   dl.text('Number', 417, 48);
   dl.text('First Letter of', 508, 40);
   dl.text('Last Name', 516, 48);
@@ -868,24 +859,6 @@ function generateStandardDecklist(parsedInput) {
   dl.setFontSize(11);
   dl.setFontStyle('bold');
   dl.text(firstname, 43, 544, 90);
-
-  // put the DCI number into the PDF
-  dl.setFont('times');
-  dl.setFontSize(7);
-  dl.setFontStyle('italic');
-  dl.text('DCI #:', 41, 404, 90);    // dci # is rotated and italic
-  let dcinumber = $('#dcinumber').val();
-  if (dcinumber) { // only if there is a dci number
-    dcinumber = DCI.getTenIfValid(dcinumber).toString();
-  }
-  dl.setFont('helvetica');
-  dl.setFontSize(12);
-  dl.setFontStyle('bold');
-  if (dcinumber.length > 0) {
-    for (let i = 0, y = 372; i < dcinumber.length; i++, y -= 24) {
-      dl.text(dcinumber.charAt(i), 43, y, 90);
-    }
-  }
 
   // Add the deck to the decklist
   for (let column = 0, x = 82, y = 182; column < 2; column++) {
