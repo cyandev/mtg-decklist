@@ -778,13 +778,11 @@ function generateStandardDecklist(parsedInput) {
   // Interleave user input for better copy+paste behavior
   // There are a ton of them, so this will be exciting
   dl.setFontSize(15);
-  dl.setFontStyle('bold');
   dl.setFont('helvetica'); // it's no Helvetica, that's for sure
   dl.text('DECK REGISTRATION SHEET', 135, 45);
 
   dl.setFontSize(7);
   dl.setFontStyle('normal');
-  dl.text('Number', 417, 48);
   dl.text('First Letter of', 508, 40);
   dl.text('Last Name', 516, 48);
 
@@ -798,7 +796,7 @@ function generateStandardDecklist(parsedInput) {
   }
 
   // put the event name, deck designer, and deck name into the PDF
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.setFontStyle('normal');
   dl.text('Date:', 169, 68);
@@ -806,41 +804,40 @@ function generateStandardDecklist(parsedInput) {
   dl.setFontSize(11);
   dl.text($('#eventdate').val(), 192, 69.5);
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.text('Event:', 387, 68);
   dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.text($('#event').val().capitalize(), 412, 69.5);
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.text('Location:', 158, 92);
   dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.text($('#eventlocation').val().capitalize(), 192, 93.5);
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.text('Deck Name:', 370, 92);
   dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.text($('#deckname').val().capitalize(), 412, 93.5);
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.text('Deck Designer:', 362, 116);
   dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.text($('#deckdesigner').val().capitalize(), 412, 117.5);
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(13);
-  dl.setFontStyle('bold');
   dl.text('PRINT CLEARLY USING ENGLISH CARD NAMES', 36, 121);
 
   // put the last name into the PDF
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.setFontStyle('normal');
   dl.text('Last Name:', 41, 760, 90);
@@ -851,7 +848,7 @@ function generateStandardDecklist(parsedInput) {
 
   // put the first name into the PDF
   const firstname = $('#firstname').val().capitalize();
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(7);
   dl.setFontStyle('normal');
   dl.text('First Name:', 41, 581, 90);  // rotate
@@ -862,7 +859,7 @@ function generateStandardDecklist(parsedInput) {
 
   // Add the deck to the decklist
   for (let column = 0, x = 82, y = 182; column < 2; column++) {
-    dl.setFont('times');
+    dl.setFont('helvetica');
     dl.setFontStyle('bold');
     if (column === 0) {
       dl.setFontSize(13);
@@ -897,7 +894,7 @@ function generateStandardDecklist(parsedInput) {
     x = 356, y = 182;
   }
 
-  dl.setFont('times');
+  dl.setFont('hekvetica');
   dl.setFontSize(13);
   dl.setFontStyle('bold');
   dl.text('Sideboard:', 336, 404);
@@ -915,7 +912,7 @@ function generateStandardDecklist(parsedInput) {
   }
 
   // Add the maindeck count
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.setFontStyle('bold');
   dl.text('Total Number of Cards in Main Deck:', 62, 768);
@@ -927,7 +924,7 @@ function generateStandardDecklist(parsedInput) {
   }
 
   // Add the sideboard count
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(11);
   dl.setFontStyle('bold');
   dl.text('Total Number of Cards in Sideboard:', 336, 714);
@@ -938,7 +935,7 @@ function generateStandardDecklist(parsedInput) {
     dl.text(String(sideboard_count), 524 + 56 / 2, 712, null, null, 'center');
   }
 
-  dl.setFont('times');
+  dl.setFont('helvetica');
   dl.setFontSize(5);
   dl.setFontStyle('bold');
   dl.text('FOR OFFICAL USE ONLY', 324, 730);
